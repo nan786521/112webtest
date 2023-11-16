@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣防疫資訊網</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="img/home1.jpg" rel="preload" as="image">
+    <link href="img/home2.jpg" rel="preload" as="image">
+    <link href="img/home3.jpg" rel="preload" as="image">
+    <link href="img/home4.jpg" rel="preload" as="image">
+
+  </head>
+  <body>
+	  <div id="app">
+	  	<nav class="navbar navbar-expand-lg fixed-top">
+			<div class="container">
+				 <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png" alt=""></a>
+			   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			   <i class="fas fa-bars"></i>
+			   </button>
+			   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				  <ul class="navbar-nav ml-auto">
+					 <li class="nav-item">
+						<a class="nav-link" href="#home">首　　頁</a>
+					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#about">關於我們</a>
+					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#news">疫情資訊</a>
+					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#shop">商品一覽</a>
+					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#contact">聯絡我們</a>
+					 </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#cart" data-toggle="modal" data-target="#cart">購物車({{num}})</a>
+					 </li>
+				  </ul>
+			   </div>
+
+			</div>
+      
+    </nav>
+		  <section id="home">
+		  	<div class="container_fluid h-100">
+			  	<div class="row h-100">
+					<div class="col-md-3">
+						<h3>2020 / 12 / 02</h3>
+					</div>
+					<div class="col-md-6">
+						<a href="#about">
+							<div class="title-box">
+								<span></span>
+								<span></span>
+								<span></span>
+								<h1>台灣防疫資訊網</h1>
+								<table>
+									<tbody>
+										<tr>
+											<th>瀏覽人數</th>
+											<th>參與率</th>
+											<th>分享率</th>
+										</tr>
+										<tr>
+											<td><em class="people"></em></td>
+											<td><em class="join"></em></td>
+											<td><em class="share"></em></td>
+										</tr>
+									</tbody>
+								</table>
+								<i class="fas fa-angle-double-down"></i>
+							</div>
+						</a>
+					</div>
+					<div class="col-md-3">
+						<ul class="home-slogan">
+							<li>善用網路資訊</li>
+							<li>建立正確觀念</li>
+							<li>保護朋友家人</li>
+							<li>就在<span class="underline">防疫資訊網</span></li>
+						</ul>
+					</div>
+				</div>
+			  </div>
+		  </section>
+<!--		  home-->
+		  <section id="about">
+		  	<div class="container h-100">
+			  	<div class="row ab-slogan">
+					<i class="fas fa-caret-right"></i>
+					<b>你的健康 我們守護 <br>保護台灣 你我有責</b>
+					<i class="fas fa-caret-left"></i>
+				</div>
+				<div class="row ab-block">
+					<div class="col-md-8 m-auto left">
+						<h3>關於我們</h3>
+						<p>作為全世界第一名榜樣，曾經實現過能穩定控制住病毒的傳染疫情的國家。台灣在數年前以超高資訊能力應對了生化病毒C-20的襲擊，當時集合了臺灣的自由軟體程式設計師及聯合臺灣駭客(Hacker)團體建立線上資訊平台與線下調度通路，打了一場紮實的勝仗，記下了台灣在世界歷史上的一筆紀錄。</p>
+					</div>
+					<div class="col-md-4 ab-imgbx right">
+						<img src="img/about.jpg" alt="">
+					</div>
+				</div>
+				<div class="row team">
+					<div class="col-md-4 m-auto left">
+						<ul>
+							<h3>團隊介紹</h3>
+							<li @click="aboutIndex = 0"><i class="fas fa-info-circle"></i>成立理念 <i class="fas fa-angle-right"></i></li>
+							<li @click="aboutIndex = 1"><i class="fas fa-info-circle"></i>團隊陣容 <i class="fas fa-angle-right"></i></li>
+							<li @click="aboutIndex = 2"><i class="fas fa-info-circle"></i>錯誤資訊 <i class="fas fa-angle-right"></i></li>
+						</ul>
+					</div>
+					<div class="col-md-8 m-auto right">
+						<div class="row">
+							<div class="col-sm-4">
+								<img :src="about.img" alt="">
+							</div>
+							<div class="col-sm-8">
+								<h4>{{about.title}}</h4>
+								<p>{{about.content}}</p>
+								<div v-if="aboutIndex == '2'">
+									<progress max="100" value="100"></progress>
+									<label for="" class="percent">錯誤率100%</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+		  </section>
+<!--		  about-->
+		  <section id="news">
+		  	<div class="container_fluid h-100">
+			  	<div class="container">
+					<div class="row select-box">
+						<div class="col-md-4" @click="optionIndex = 0"><i class="fas fa-bullhorn"></i> 疫情發展</div>
+						<div class="col-md-4" @click="optionIndex = 1"><i class="fas fa-exclamation-triangle"></i> 疫情知識</div>
+						<div class="col-md-4" @click="optionIndex = 2"><i class="fab fa-hotjar"></i>時事報導</div>
+					</div>
+					<div class="row option-box" v-if="optionIndex == '0'">
+						<button class="btn" @click="articleIndex = 0">來源</button>
+						<button class="btn" @click="articleIndex = 1">國際命名</button>
+						<button class="btn" @click="articleIndex = 2">台灣個案</button>
+					</div>
+					<div class="row option-box" v-else-if="optionIndex == '1'">
+						<button class="btn" @click="articleIndex = 3">臨床症狀</button>
+						<button class="btn" @click="articleIndex = 4">潛伏期</button>
+						<button class="btn" @click="articleIndex = 5">傳播途徑</button>
+					</div>
+					<div class="row option-box" v-else-if="optionIndex == '2'">
+						<button class="btn" @click="articleIndex = 6">丹麥近況</button>
+						<button class="btn" @click="articleIndex = 7">美國研究</button>
+						<button class="btn" @click="articleIndex = 8">新冠治療</button>
+					</div>
+				</div>
+<!--				container-->
+				<div class="row article">
+					<div class="col-md-4 article-imgbx">
+						<img :src="article.img" alt="">
+						<div class="decoration"></div>
+					</div>
+					<div class="col-md-4 m-auto">
+						<h3>{{article.title}}</h3>
+						<p>{{article.content}}</p>
+					</div>
+					<div class="col-md-4 data">
+						<ul>
+							<h3>快速查看數據</h3>
+							<li data-toggle="modal" data-target="#chart1">Co-20死亡個案</li>
+							<li data-toggle="modal" data-target="#chart2">Co-20死亡率</li>
+							<li data-toggle="modal" data-target="#chart3">Co-20總數</li>
+						</ul>
+					</div>
+				</div>
+				<div class="block-container">
+					<div v-for="index in 2">
+						<div class="block" v-for="(imgUrl,index) in articles">
+							<img :src="imgUrl.img" @click="articleIndex = index" alt="">
+						</div>
+					</div>
+				</div>
+			  </div>
+		  </section>
+<!--		  news-->
+		  <section id="shop">
+		  	<div class="container h-100">
+			  	<div class="row h-100">
+					<div class="col-md-6 shop-left">
+						<div class="alltext">
+							<span></span>
+							<span></span>
+							<span></span>
+							<h3>{{product.title}}</h3>
+							<p>{{product.content}}</p>
+							<p>價格: {{product.price}}元</p>
+							<div class="action-box">
+								<i class="fas fa-minus-circle" @click="minus(product)"></i>
+								{{product.amountShow}}
+								<i class="fas fa-plus-circle" @click="plus(product)"></i>
+								<button class="btn btn-outline-secondary addToCart" @click="addToCart(product)">加入購物車</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 shop-right">
+						<div class="pd-block" v-for="(product,index) in products" @click="productIndex = index">
+							<div class="pd-imgbx">
+								<img :src="product.img" alt="">
+							</div>
+							<div class="pd-textbx">
+								<h3>{{product.title}}</h3>
+								<p>{{product.content}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+		  </section>
+<!--		  shop-->
+		  <section id="contact">
+		  	<div class="container_fluid h-100">
+			  	<div class="row h-100">
+					<div class="col-md-6">
+						<div class="info-box">
+							<h2>Contact Us</h2>
+							<ul>
+								<h3>官方資訊</h3>
+								<li><i class="fas fa-id-card"></i>官方名稱: 台灣防疫資訊網</li>
+								<li><i class="fas fa-phone"></i>客服電話: 02 1234 5678</li>
+								<li><i class="fas fa-envelope"></i>客服信箱: B048@gmail.com</li>
+								<li><i class="fas fa-headphones"></i>客服ID: B048</li>
+							</ul>
+							<ul class="social">
+								<h3>追蹤我們</h3>
+								<li>
+									<i class="fab fa-facebook" @click="social()"></i>
+									<i class="fab fa-instagram" @click="social()"></i>
+									<i class="fab fa-twitter" @click="social()"></i>
+									<i class="fab fa-line" @click="social()"></i>
+								</li>
+								<li>
+									信箱
+									<input type="text" class="w-50"><button class="btn btn-outline-light" @click="send()">訂閱
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<form class="contact-box">
+							<h3>聯絡我們</h3>
+							<div class="form-group">
+								<label for="">姓名</label>
+								<input type="text" required>
+							</div>
+							<div class="form-group">
+								<label for="">信箱</label>
+								<input type="text" required>
+							</div>
+							<div class="form-group">
+								<label for="">電話</label>
+								<input type="text" required>
+							</div>
+							<div class="form-group">
+								<label for="">意見回饋</label>
+								<textarea rows="3" required></textarea>
+							</div>
+							<div class="btn-group">
+								<button class="btn btn-outline-light">送出</button>
+								<button class="btn btn-outline-light" type="reset">清空</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			  </div>
+		  </section>
+		  
+		  <div class="icon-bar">
+		  	<i class="fas fa-robot"></i>
+		  	<i class="fas fa-shopping-cart" data-toggle="modal" data-target="#cart"><span>{{num}}</span></i>
+			  <a href="#home">
+			  	<i class="fas fa-angle-double-up"></i>
+			  </a>
+		  </div>
+		  
+		  <div class="chatbot">
+		  	<div class="msg-box">
+			  	<div class="r-ans">
+					<p>請問有什麼問題嗎?</p>
+				</div>
+			  </div>
+			  <div class="q-block">
+			  	<button class="btn q-btn" value="q1">傳播</button>	
+			  	<button class="btn q-btn" value="q2">感染</button>
+			  	<button class="btn q-btn" value="q3">星狀病毒</button>
+			  	<button class="btn q-btn" value="q4">治療</button>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade" id="cart">
+		  	<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="mx-auto">購物車</h3>
+					</div>
+					<div class="modal-body">
+						<div class="pd-info" v-for="product in productInCart">
+							<img :src="product.img" alt="">
+							<div>
+								<b>{{product.title}}</b>
+								<div class="between">
+									<span>數量 <br>{{product.amount}} </span>
+									<span>價格 <br>{{product.price}} </span>
+									<span>小計 <br>{{product.sum}} </span>
+								</div>
+							</div>
+							<i class="fas fa-trash-alt" @click="remove(product)"></i>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<form action="" class="price-box">
+							<div>
+								<input type="text" class="w-50 form-control" required placeholder="請輸入姓名">
+								<input type="text" class="w-50 form-control" required placeholder="請輸入姓名">
+							</div>
+							<div>
+								<input type="text" class="w-50 form-control" required placeholder="請輸入姓名">
+								<input type="text" class="w-50 form-control" required placeholder="請輸入姓名">
+							</div>
+							<div>
+								總計 {{total}} 元
+								<button class="btn btn-success">購買</button>
+								<button class="btn btn-danger" data-dismiss="modal">關閉</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			  </div>
+		  </div>
+		  
+		  <div class="modal fade chart" id="chart1" >
+		  	<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h3>死亡個案</h3>
+					</div>
+					<div class="modal-body">
+						<img src="img/chart1.png" alt="">
+					</div>
+				</div>
+			  </div>
+		  </div>
+		    <div class="modal fade chart" id="chart2">
+		  	<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h3>死亡率</h3>
+					</div>
+					<div class="modal-body">
+						<img src="img/chart2.png" alt="">
+					</div>
+				</div>
+			  </div>
+		  </div>
+		    <div class="modal fade chart" id="chart3">
+		  	<div class="modal-dialog">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h3>總數</h3>
+					</div>
+					<div class="modal-body">
+						<img src="img/chart3.png" alt="">
+					</div>
+				</div>
+			  </div>
+		  </div>
+		  
+		  <div class="check">
+		  	<i class="fas fa-check"></i>
+			  <h3>成功加入購物車</h3>
+		  </div>
+		  
+<!--		  app-->
+	  </div>
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
